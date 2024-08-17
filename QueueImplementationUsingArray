@@ -1,0 +1,51 @@
+package Queues_And_Stacks;
+//exec
+
+public class Queue_Using_LL {
+	public static node head,rare;
+	public static node top=head,front=rare=new node(0);
+	public static int size=0;
+	public static node hey=front;
+	private static void pop() {
+		front=front.next;
+		size--;
+	}
+
+	private static void peek() {
+		System.out.println(rare.data);
+	}
+
+	private static void push(int ele) {
+		node hi=new node(ele);
+		System.out.print(hi.data+" ");
+		rare.next=hi;
+		rare=rare.next;
+		size++;
+	}
+	public static void main(String[] args) {
+		push(1);
+		push(2);
+		push(3);
+		push(4);
+		push(5678);
+		push(2);
+		pop();
+		peek();
+		System.out.println(size);
+		
+		
+		
+
+	}
+
+	static class node
+	{
+	        int data;
+	        node next=null;
+	        node(int data)
+	        {
+	        this.data=data;
+	        }
+	}
+
+}
