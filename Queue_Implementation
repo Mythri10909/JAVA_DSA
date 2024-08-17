@@ -1,0 +1,23 @@
+package Queues_And_Stacks;
+//Exec
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class Queue_Imple {
+
+	public static void main(String[] args) {
+		Queue<Integer>Q=new LinkedList<>();
+		Q.add(1);	
+		Q.add(2);
+		Q.add(3);
+		Q.poll();
+		Q.isEmpty();
+		Q.offer(99);
+
+		Iterator l1=Q.iterator();
+		while(l1.hasNext()) {
+			System.out.print(l1.next()+" ");
+	}
+	}
+}
