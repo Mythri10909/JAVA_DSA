@@ -1,0 +1,29 @@
+package Queues_And_Stacks;
+
+import java.util.Iterator;
+import java.util.Stack;
+public class Stack_Imple {
+
+	public static void main(String[] args) {
+		//Stack implementation using Collection
+				Stack <Integer>S1=new Stack<Integer>();
+				S1.push(1);
+				S1.push(2);
+				S1.push(2);
+				S1.push(2);
+				S1.pop();
+				S1.push(9);
+				S1.push(3);
+				S1.push(30);
+				S1.push(76);
+				S1.pop();
+				S1.pop();
+				S1.pop();
+				System.out.println(S1.peek());  
+				Iterator<Integer>it1=S1.iterator();
+				while(it1.hasNext()) {
+					System.out.print(it1.next()+" ");
+				}
+	}
+
+}
