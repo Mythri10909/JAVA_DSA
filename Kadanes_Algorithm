@@ -1,0 +1,23 @@
+package Arrays;
+//exec
+public class kadanes_Algo {
+
+	public static void main(String[] args) {
+		int a[]= {3,-2,5,7,-10,8};
+		int n=a.length;	int l=0,r=n-1,i=0;int cursum=0;
+		int maxsum=0;
+		while(i<n) {
+			cursum+=a[i];
+			//System.out.println(cursum);
+			maxsum=Math.max(cursum, maxsum);
+			i++;
+			if(cursum<0)cursum=0;
+		}
+		
+		System.out.println("----"+maxsum);;
+		
+		
+
+	}
+
+}
