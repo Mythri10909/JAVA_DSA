@@ -1,0 +1,21 @@
+package Recursion;
+//exec
+public class Unique_Paths {
+		
+	public static int paths(int i,int j) {
+	if(i==0 ||j==0)
+	{
+	return 1;
+	}
+	if(i<0 || j<0)
+	{
+	return 0;
+	}
+	return paths(i-1,j)+paths(i,j-1);
+	}
+	
+	public static void main(String[] args) {
+	System.out.println(paths(7,3));
+	}
+
+}
