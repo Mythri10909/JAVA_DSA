@@ -1,0 +1,15 @@
+package Arrays;
+//exec
+public class Buy_and_Sell_Stock {
+	public static void main(String[] args) {
+	int a[]= {5,1,7,2,3,1},n=a.length,i=0,ele=a[0],maxmoney=0;
+		for(i=n-1;i>=0;i--) {
+//			ele=Math.max(a[i], ele);
+//			maxmoney=Math.max(ele-a[i],maxmoney);		
+			      //(OR)
+			ele=Math.min(a[i], ele);
+ 			maxmoney=Math.max(a[i]-ele,maxmoney);
+		}
+				System.out.println(maxmoney);
+	}
+}
