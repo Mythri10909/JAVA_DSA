@@ -1,0 +1,65 @@
+package Queues_And_Stacks;
+//exec 
+import java.util.Stack;
+
+public class GetMinStack {	
+	static Stack<Integer>s1=new Stack <Integer>();
+	static int mini=Integer.MAX_VALUE;
+private static void push1(int ele) {
+	int newVal;
+	if(ele>=mini) {
+		s1.push(ele);
+	}
+	else {
+		newVal=(2*ele)-mini;
+		mini=ele;
+		s1.push(newVal);
+	}
+	
+	
+}
+private static void pop() {
+	if(s1.isEmpty())System.out.println("Stack Underflow");
+	else {
+		int x=s1.peek();
+		s1.pop();
+		if(x<=mini) {
+			mini=(2*mini)-x;
+		}
+	}
+}
+
+private static int top() {
+	if(s1.isEmpty())return 0;
+	if(s1.peek()<mini) {
+		return mini;
+	}
+	return s1.peek();
+}	
+private static int getMin() {
+	return mini;
+	
+	
+	
+}
+	public static int s[]=new int[10];
+	public static int top=-1;
+	public static void main(String[] args) {
+		
+		push1(12);
+		push1(15);
+		push1(10);
+		push1(8);
+		push1(42345);
+		push1(86345);
+		push1(5345);
+		push1(334562);
+		push1(17);
+		System.out.println(top());		
+		pop();
+		pop();
+		System.out.println(getMin());
+	}
+
+
+}
