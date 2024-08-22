@@ -1,0 +1,15 @@
+package Recursion;
+//exec
+public class Sum_Of_Square_Powers {
+
+	public static int squares(int n) {
+	if(n==0)return 0;
+	if(n==1)return 1;
+	return (n*n)+squares(n-1);
+	}
+	
+	public static void main(String[] args) {
+		System.out.println(squares(3));
+	}
+
+}
