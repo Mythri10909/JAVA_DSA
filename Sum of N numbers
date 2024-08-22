@@ -1,0 +1,24 @@
+package Recursion;
+//exec
+public class Sum_Of_n {
+	public static int sum(int n) {
+		if(n==0)return 0;
+		if(n==1)return 1;
+		return n+sum(n-1);
+		}
+	
+	
+	
+	
+	public static void main(String[] args) {
+		System.out.println(sum(3));
+		
+		
+		
+		
+		
+		
+
+	}
+
+}
