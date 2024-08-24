@@ -1,0 +1,59 @@
+package Sorting;
+//exec
+public class Merge_Sort {
+    public static void Merge_Sort(int[] a, int low, int high) {
+        if (low < high) {
+            int mid = (low + high) / 2;
+            Merge_Sort(a, low, mid);
+            Merge_Sort(a, mid + 1, high);
+            Merge(a, low, mid, high);
+        }
+    }
+
+    public static void Merge(int[] a, int low, int mid, int high) {
+        int[] temp = new int[high - low + 1];
+        int i = low, j = mid + 1, x = 0;
+        
+        // Merging the two parts into temp array
+        while (i <= mid && j <= high) {
+            if (a[i] <= a[j]) {
+                temp[x] = a[i];
+                i++;
+            } else {
+                temp[x] = a[j];
+                j++;
+            }
+            x++;
+        }
+        
+        // Copying the remaining elements of left part, if any
+        while (i <= mid) {
+            temp[x] = a[i];
+            i++;
+            x++;
+        }
+        
+        // Copying the remaining elements of right part, if any
+        while (j <= high) {
+            temp[x] = a[j];
+            j++;
+            x++;
+        }
+        
+        // Copying the sorted temp array into original array
+        for (int k = 0; k < temp.length; k++) {
+            a[low + k] = temp[k];
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] a = {2, 5, 1, 7, 0, -3579};
+        int n = a.length;
+        int low = 0, high = n - 1;
+        Merge_Sort(a, low, high);
+        
+        for (int i = 0; i < a.length; i++) {
+            System.out.print(a[i] + " ");
+        }
+    }
+}
