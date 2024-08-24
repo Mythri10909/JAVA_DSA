@@ -1,0 +1,45 @@
+package Sorting;
+//exec
+public class Quick_Sort {
+
+    public static void quickSort(int[] a, int low, int high) {
+        if (low < high) {
+            int partitionIndex = partition(a, low, high);
+            quickSort(a, low, partitionIndex - 1);
+            quickSort(a, partitionIndex + 1, high);
+        }
+    }
+
+    public static int partition(int[] a, int low, int high) {
+        int pivot = a[high];
+    	//System.out.print(pivot+" ");
+        int i = low - 1;
+        System.out.println(i);
+        for (int j = low; j < high; j++) {
+            if (a[j] <= pivot) {
+                i++;
+                //System.out.println(a[j]);
+                int temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+            }
+        }
+        
+        int temp = a[i + 1];
+        a[i + 1] = a[high];
+        a[high] = temp;
+        //System.out.println(i+1);
+        return i + 1;
+    }
+
+    public static void main(String[] args) {
+        int[] a = { 19,5,2,4,6,-1,0};
+        int n = a.length;
+        
+        quickSort(a, 0, n - 1);
+        
+        for (int x1 = 0; x1 < n; x1++) {
+            System.out.print(a[x1] + " ");
+        }
+    }
+}
