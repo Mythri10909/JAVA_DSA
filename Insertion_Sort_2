@@ -1,0 +1,23 @@
+package Sorting;
+//exec
+//O(n^2)
+public class Insertion_Sort2 {
+
+	public static void main(String[] args) {
+		int a[]= {1,2,3,4,5,6,7,234567,9,3,8,0};	
+		int n=a.length;int k;
+		for(int i=0;i<n;i++) {
+			int currentele=a[i];
+			int j=i-1;
+			while(j>=0 && currentele<a[j]) {
+				a[j+1]=a[j];
+				//i.e a[j+1]=a[i]
+				j--;
+		   } 
+		   a[j+1]=currentele;
+	    }
+		for(int x=0;x<n;x++) {
+			System.out.print(a[x]+" ");
+		}
+  }
+}
