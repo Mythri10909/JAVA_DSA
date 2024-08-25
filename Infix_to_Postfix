@@ -1,0 +1,72 @@
+package Queues_And_Stacks;
+//exec ;)
+import java.util.Stack;
+
+public class Infix_to_Postfix {
+	
+	
+
+	private static int Priority(char charAt) {
+		if(charAt=='^')return 4;
+		else if(charAt=='*' || charAt=='/' || charAt=='%')return 3;
+		else if(charAt=='+' || charAt =='-')return 2;
+		else return 1;
+	}
+	
+	
+	public static String infix_to_postfix(String s){
+		Stack <Character>st=new Stack<Character>();
+		int i=0,n=s.length();
+		String ans="";
+		while(i<n) {
+			if(s.charAt(i)>='A' && s.charAt(i)<='Z' || s.charAt(i)>='a' && s.charAt(i)<='z' || s.charAt(i)>='0' && s.charAt(i)<=9 ) 
+			{
+				ans=ans+s.charAt(i);
+			}
+			else if(st.isEmpty()) 
+			st.push(s.charAt(i));
+			//popping until we get open paranthesis i.e (
+			else if(s.charAt(i)== ')') {
+				while((!st.isEmpty() && st.peek()!='(') && (st.peek())>Priority(s.charAt(i))) {
+					ans=ans+st.peek();
+					st.pop();
+				}
+				st.pop();
+			}
+			else if(s.charAt(i)=='(' || Priority(st.peek())<=Priority(s.charAt(i))) {
+				st.push(s.charAt(i));
+			}
+			else if(Priority(st.peek())>Priority(s.charAt(i))) {
+				ans=ans+st.peek();
+				st.pop();
+				st.push(s.charAt(i));
+			}
+			//if(!st.isEmpty())System.out.println(st.peek());   
+			i++;
+	}
+	if(!st.isEmpty()) {
+		while(!st.isEmpty()) {
+			ans=ans+st.peek();
+			st.pop();
+		}
+	}
+//	i=0;
+//	while(i<ans.length()) {
+//		System.out.print(ans.charAt(i));
+//		i++;
+//	}
+	//System.out.println();
+	return ans;
+	}
+
+	public static void main(String[] args) {
+		String s="a+b*(c^d-e)";
+		s=infix_to_postfix(s);
+		int i=0;
+		while(i<s.length()) {
+			System.out.print(s.charAt(i));
+			i++;
+		}
+	}
+
+}
