@@ -1,0 +1,44 @@
+package Queues_And_Stacks;
+//exec
+import java.util.Stack;
+
+public class Postfix_toPrefix {
+	static Stack <String >k=new Stack<String>();
+	private static String postfix_toPrefix(String s) {
+		int i=0,n=s.length();System.out.println(i<n);
+		while(i<n) {
+			if(s.charAt(i)>='A' && s.charAt(i)<='Z' || s.charAt(i)>='a' && s.charAt(i)<='z' || s.charAt(i)>='0' && s.charAt(i)<=9 ) 
+			{
+				String a=s.charAt(i)+" ";
+				k.push(a);
+			}
+			else {
+				String a=k.peek();
+				k.pop();
+				String b=k.peek();
+				k.pop();
+				String both=s.charAt(i)+b+a;
+				k.push(both);
+				System.out.println(both);
+			}
+			i++;
+		}
+		String ans="";
+		while(!k.isEmpty()) {
+			ans=ans+k.peek();
+			k.pop();
+		}
+			return ans;
+	}
+
+	public static void main(String[] args) {
+		String s="ab-de+f*/";
+		s=postfix_toPrefix(s);int i=0;
+		while(i<s.length()) {
+			System.out.print(s.charAt(i));
+			i++;
+		}
+	}
+
+
+}
