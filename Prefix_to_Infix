@@ -1,0 +1,41 @@
+package Queues_And_Stacks;
+//exec
+import java.util.Stack;
+
+public class Prefix_to_Infix {
+	static Stack <String>st12=new Stack<String>();
+
+	private static String prefix_to_Infix(String s) {
+			int n=s.length(),i=n-1;
+			while(i>=0) {
+				if(s.charAt(i)>='A' && s.charAt(i)<='Z' || s.charAt(i)>='a' && s.charAt(i)<='z' || s.charAt(i)>='0' && s.charAt(i)<=9 ) 
+				{
+					String a=s.charAt(i)+" ";
+					st12.push(a);
+				}
+				else {
+					String x=st12.peek();
+					st12.pop();
+					String y=st12.peek();st12.pop();
+					String add='('+x+s.charAt(i)+y+')';
+					st12.push(add);
+				}
+			i--;
+			}
+			String ans="";
+			while(!st12.isEmpty()) {
+			ans=ans+st12.peek();
+			st12.pop();
+		}
+			return ans;
+		}
+	public static void main(String[] args) {
+		String s="*+pq-mn";
+		s=prefix_to_Infix(s);
+		int i=0;
+		while(i<s.length()) {
+			System.out.print(s.charAt(i));
+			i++;
+		}
+	}
+	}
