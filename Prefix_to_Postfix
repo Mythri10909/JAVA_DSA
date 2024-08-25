@@ -1,0 +1,47 @@
+package Queues_And_Stacks;
+//exec
+import java.util.Stack;
+
+public class Prefix_to_Postfix {
+	static Stack<String> sab=new Stack<String>();
+	private static String prefix_to_Postfix(String s) {
+		
+		int i=0,n=s.length();
+		i=n-1;
+		while(i>=0) {
+			if(s.charAt(i)>='A' && s.charAt(i)<='Z' || s.charAt(i)>='a' && s.charAt(i)<='z' || s.charAt(i)>='0' && s.charAt(i)<=9 ) 
+			{
+				sab.push(s.charAt(i)+" ");
+			}
+			else {
+				String a=sab.peek();
+				sab.pop();
+				String b=sab.peek();
+				sab.pop();
+				String both=a+b+s.charAt(i);
+				sab.push(both);
+			}
+			i--;
+		}
+		String ans="";
+		if(!sab.isEmpty()) {
+			while(!sab.isEmpty()) {
+				ans=ans+sab.peek();
+				sab.pop();
+			}
+		}
+		
+		return ans;
+	}
+	
+	
+	public static void main(String[] args) {
+		String s="/-ab*+def";//prefix exp
+		s=prefix_to_Postfix(s);
+		int i=0;
+		while(i<s.length()) {
+			System.out.print(s.charAt(i));
+			i++;
+		}
+	}
+}
