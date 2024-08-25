@@ -1,0 +1,42 @@
+package Queues_And_Stacks;
+//exec
+import java.util.Stack;
+
+public class Postfix_to_Infix {
+	static Stack <String>st2=new Stack<String>();
+	private static String postfix_to_Infix(String s) {
+		int i=0,n=s.length();
+		while(i<n) {
+			if(s.charAt(i)>='A' && s.charAt(i)<='Z' || s.charAt(i)>='a' && s.charAt(i)<='z' || s.charAt(i)>='0' && s.charAt(i)<=9 ) 
+			{
+				String a=s.charAt(i)+" ";
+				st2.push(a);
+			}
+			else {
+				String x=st2.peek();st2.pop();
+				String y=st2.peek();st2.pop();
+				String add='('+y+s.charAt(i)+x+')';
+				st2.push(add);
+			}
+		i++;
+		}
+		String ans="";
+		while(!st2.isEmpty()) {
+		ans=ans+st2.peek();
+		st2.pop();
+	}
+		return ans;
+	}
+
+	public static void main(String[] args) {
+		String s="AB-DE+F*/";
+		s=postfix_to_Infix(s);		
+		int i=0;
+		while(i<s.length()) {
+			System.out.print(s.charAt(i));
+			i++;
+		}
+	}
+	
+
+}
