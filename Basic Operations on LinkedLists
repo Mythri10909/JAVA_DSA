@@ -1,0 +1,79 @@
+//EXECUTED
+package Linkedlists;
+
+public class Link_Firstele_With_lastele_LinkedList {
+
+    public static void main(String[] args) {
+        
+        node ans=new node(-1);
+        node prev=ans;
+        
+        node head=new node(1);
+	      head.next=new node(2);
+	      head.next.next=new node(3);
+	      head.next.next.next=new node(4);
+	      node temp=new node(50);
+	      head.next.next.next.next=temp;
+        node t1=head;
+        node hare=head;
+        node turtle=head;
+        while(hare!=null&&hare.next!=null){
+        hare=hare.next.next;
+        prev=turtle;
+        turtle=turtle.next;
+        
+        }
+        prev.next=null;
+        turtle=reverse(turtle);
+        ans=alter(ans,head,turtle);
+        print(ans.next);
+        }
+        static node reverse(node head)
+        {
+        node cur=head;
+        node prev=null;
+        node next=null;
+        while(cur!=null)
+        {
+        next=cur.next;
+        cur.next=prev;
+        prev=cur;
+        cur=next;
+        }
+        return prev;
+        }
+         static node alter(node p,node t1,node t2){
+        node q=p;
+        while(t1!=null&&t2!=null){
+        p.next=t1;
+        t1=t1.next;
+        p=p.next;
+        p.next=t2;
+        t2=t2.next;
+        p=p.next;
+        }
+        if(t1!=null)p.next=t1;
+        if(t2!=null)p.next=t2;
+        return q;
+        
+        }
+        static void print(node head) 
+        {
+		node temp=head;
+		while(temp!=null)
+    {
+			System.out.print(temp.data+" -> ");
+			temp=temp.next;
+		}
+		System.out.println();
+	}
+ static class node
+ {
+      int data;
+      node next=null;
+      node(int data)
+      {
+          this.data=data;
+      }
+ }
+}
