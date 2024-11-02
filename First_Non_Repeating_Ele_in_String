@@ -1,0 +1,20 @@
+import java.util.*;
+public class First_Non_Repeating_Ele_in_String {
+    public static char Find_Char(String s){
+         Map<Character,Integer>map=new HashMap<>();
+         for(char chara:s.toCharArray()){
+             map.put(chara,map.getOrDefault(chara,0)+1);
+         }
+         for(char chara:s.toCharArray()){
+             if(map.get(chara)==1){
+                 return chara;
+         }
+         }
+         return '\0';
+    }
+    public static void main(String[] args) {
+        String s="mytthehririedmdy";
+        char c=Find_Char(s);
+        System.out.print(c+" ");
+    }
+}
