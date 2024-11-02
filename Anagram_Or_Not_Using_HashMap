@@ -1,0 +1,27 @@
+import java.io.*;
+import java.util.*;
+class Anagram_Or_Not_Using_HashMap {
+    public static boolean anagram_Or_Not(String s1,String s2){
+        if(s1.length()!=s2.length())return false;
+        Map<Character,Integer>map=new HashMap<>();
+        for(char c:s1.toCharArray()){
+            map.put(c,map.getOrDefault(c,0)+1);
+        }
+        for(char c:s2.toCharArray()){
+            if(!map.containsKey(c) || map.get(c)==0){
+                return false;
+            }
+            map.put(c,map.getOrDefault(c,0));
+        }
+        return true;
+    }
+	public static void main (String[] args) {
+	    String s1="stress";
+	    String s2="ssrets";
+	    boolean result= anagram_Or_Not(s1,s2);
+	   if(result==true) System.out.print(" they are anagrams ");
+	    else System.out.print("they are not anagrams ");
+	    
+	    
+	}
+}
