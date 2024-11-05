@@ -1,0 +1,29 @@
+import java.io.*;
+
+class Find_Min_in_Sorted_Array_Using_Binary_Search {
+
+    public static void Find_Min(int []a){
+    int n=a.length;int low=0,high=n-1;int ele = Integer.MAX_VALUE;int mid=0;
+    while(low<=high){
+         mid=(low+high)/2;
+        if(ele>a[mid])
+        {
+            ele=a[mid];
+        }
+        if(a[low]<=a[mid])low=mid+1;
+        else high=mid-1;
+    }
+    System.out.print("Minimum element is "+ele+" at "+mid);
+    }
+	public static void main (String[] args) {
+	    int a[]={56,344,532,2345,-99,2,3,4,5,8,9};
+	    Find_Min(a);
+	}
+}
+	
+	
+	
+	
+	
+	
+	
