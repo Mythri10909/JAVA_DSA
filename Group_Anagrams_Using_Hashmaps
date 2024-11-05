@@ -1,0 +1,22 @@
+import java.util.*;
+public class Group_Anagrams {
+    public static void main(String[] args) {
+        String[] strs = {"eat", "tea", "tan", "ate", "nat", "bat"};
+        List<List<String>> groupedAnagrams = groupAnagrams(strs);
+        System.out.println("Grouped Anagrams: " + groupedAnagrams);
+    }
+
+    static List<List<String>> groupAnagrams(String[] strs) {
+        HashMap<String, List<String>> anagramMap = new HashMap<>();
+        for (String str : strs) {
+            char[] charArray = str.toCharArray();
+            Arrays.sort(charArray);
+            String sortedStr = new String(charArray);
+            anagramMap.putIfAbsent(sortedStr, new ArrayList<>());
+            System.out.print(sortedStr+" ");
+            anagramMap.get(sortedStr).add(str);
+        }
+        System.out.print(str+" ");
+        return new ArrayList<>(anagramMap.values());
+    }
+}
