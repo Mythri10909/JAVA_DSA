@@ -1,0 +1,39 @@
+import java.io.*;
+
+class Search_in_Rotated_Array_Using_Binary_Search {
+
+    public static void search_in_Rotated_Array(int []a,int ele){
+    int n=a.length;int low=0,high=n-1;boolean result=false;
+    while(low<=high){
+        int mid=(low+high)/2;
+        if(ele==a[mid])
+        {
+            System.out.print("element found at "+(mid)+ " position");
+            result=true;
+            break;
+        }
+        else if((ele>a[mid] && ele>a[high]) || ele<a[mid]){
+            high=mid-1;
+            
+        }
+        else {
+            low=mid+1;
+        }
+    }
+    if(result==false)
+    System.out.print("element not found ");
+    }   
+    
+	public static void main (String[] args) {
+	    int a[]={56,344,532,2345,471,2,3,4,5,8,9};
+	    int ele=9;
+	    search_in_Rotated_Array(a,ele);
+	}
+}
+	
+	
+	
+	
+	
+	
+	
