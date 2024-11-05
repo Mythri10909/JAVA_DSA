@@ -15,7 +15,7 @@ class Lower_Bound_Using_Binary_Search {
         }
         if(index_found==-1)System.out.println("Element is not in the given list");
         else
-        System.out.print("Lower bound of element is at "+(index_found+1));
+        System.out.print("Lower bound of element is at "+index_found);
     }
 	public static void main (String[] args) {
 	    int a[]={1,2,3,6,12,35,85,94,94,94,94,134};
