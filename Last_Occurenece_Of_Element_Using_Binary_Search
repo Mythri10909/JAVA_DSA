@@ -1,0 +1,30 @@
+import java.io.*;
+
+class Last_Occurenece_Of_Element_Using_Binary_Search {
+    public static void last_Occurenece(int []a,int ele){
+    int n=a.length;
+    int low=0,high=n-1;int can_be=-1;
+    if(ele < a[0] || ele > a[high])System.out.print("element is not in the list");
+    else if(ele==a[n-1])System.out.print((n-1)+" is the last occurence of element "+ele);
+    else{
+    while(low<=high){
+        int mid=(low+high)/2;
+        if(ele==a[mid] || ele>a[mid] ){
+            can_be=mid;
+            low=mid+1;
+        }
+        else{
+            
+            high=mid-1;
+        }
+    }
+    System.out.print("the last occurrence "+(can_be));
+    }   
+    
+    }
+	public static void main (String[] args) {
+	    int a[]={1,2,3,4,5,8,9,9,9,9,9,9,15,16,239,345,876,2345,2345,765432};
+	    int ele=9;
+	    last_Occurenece(a,ele);
+	}
+}
