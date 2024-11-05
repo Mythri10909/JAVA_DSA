@@ -1,0 +1,25 @@
+import java.io.*;
+
+class Upper_Bound_Binary_Search {
+    public static void upper_Bound_Binary_Search(int []a,int ele){
+        int n=a.length;boolean result=false;
+        int low=0,high=n-1;int index_found=-1;
+        while(low<=high){
+            int mid=(low+high)/2;
+            if(ele==a[mid]){
+                index_found=mid;
+                low=mid+1;
+            }
+            else if(ele<a[mid]) high=mid-1;
+            else low=mid+1;
+        }
+        if(index_found==-1)System.out.println("Element is not in the given list");
+        else
+        System.out.print("Lower bound of element is at "+(index_found+1));
+    }
+	public static void main (String[] args) {
+	    int a[]={1,2,3,6,12,35,85,94,94,94,94,134};
+	    int ele=94;
+	     upper_Bound_Binary_Search(a,ele);
+	}
+}
