@@ -1,0 +1,25 @@
+import java.io.*;
+
+class Binary_Search {
+    public static void Bin_Search(int []a,int ele){
+        int n=a.length;boolean result=false;
+        int low=0,high=n-1;
+        while(low<=high){
+            int mid=(low+high)/2;
+            if(ele==a[mid]){
+                System.out.print("element found at "+(mid+1)+" position");
+                result=true;
+                break;
+            }
+            else if(ele<a[mid]) high=mid-1;
+            else low=mid+1;
+            
+        }
+        if(result==false)System.out.print("element not found");
+    }
+	public static void main (String[] args) {
+	    int a[]={1,2,3,6,12,35,85,94,134};
+	    int ele=94;
+	    Bin_Search(a,ele);
+	}
+}
