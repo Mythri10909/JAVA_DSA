@@ -1,0 +1,12 @@
+class Middle_Terms_Of_String{
+    public static void main (String[] args) {
+        String s="mythri,Re4ddy";
+        int n=s.length();boolean result=true;
+        if(n==1)System.out.print(s);
+        if(n==0)System.out.print("");
+        if(n%2==1) System.out.println(s.charAt(n/2));
+        else{
+            System.out.println(s.charAt(n/2)+" "+s.charAt((n/2)+1));
+        }
+    }
+}
