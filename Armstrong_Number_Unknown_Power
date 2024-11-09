@@ -1,0 +1,21 @@
+import java.io.*;
+
+class Armstrong_Number_Unknown_Power {
+   	public static void Armstrong(int n){
+   	    int r=0;
+   	    double sum=0;
+   	    int x=Integer.toString(n).length();
+   	    int temp =n;
+        while(n!=0){
+            r=n%10;
+            sum=sum+(Math.pow(r,x));
+            n/=10;
+        }
+        if(temp==sum)System.out.print("the given number is an Armstrong number");
+        else System.out.print("the given number is not an Armstrong number");
+   	}
+	public static void main (String[] args) {
+        int n=9474;
+        Armstrong(n);
+	}
+}
