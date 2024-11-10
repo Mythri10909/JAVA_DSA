@@ -1,0 +1,21 @@
+import java.io.*;
+import java.util.*;
+class Longest_Non_Repeating_Substring{
+    public static void main (String[] args) {
+    String s="Mythrireddy";
+    StringBuilder res=new StringBuilder("");
+    int i=0,n=s.length();
+    while(i<n){
+        char c=s.charAt(i);
+        if(res.indexOf(String.valueOf(c)) ==-1){
+            res.append(c);
+        }
+        else break;
+        i++;
+    }
+    System.out.println(res);
+    
+    
+    }
+	
+}
