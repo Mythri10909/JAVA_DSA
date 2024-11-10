@@ -1,0 +1,17 @@
+import java.io.*;
+import java.util.*;
+class String_Rotated_Or_Not {
+    public static boolean isRotated(String s1,String s2){
+        String s=s1+s1;
+        if(s.contains(s2))
+        return true;
+        else return false;
+    }
+    public static void main (String[] args) {
+    String s1="Mythrireddy";
+    String s2="reddyMythri";
+    if(isRotated(s1,s2))System.out.println("Rotated");
+    else System.out.println("Not Rotated");
+    }
+	
+}
