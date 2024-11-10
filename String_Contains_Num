@@ -1,0 +1,19 @@
+import java.io.*;
+
+class String_Contains_Num {
+	public static void main (String[] args) {
+	    String s="Myth3ri";
+	    int i=0;boolean contains_num=false;
+	    while(i<s.length()){
+	        int c=(int)(s.charAt(i));
+	        if(c>=48 && c<=57)  {
+	            contains_num=true;
+	            break;
+	        }
+	        i++;
+	        }
+	        if(contains_num==false)System.out.print("does not contains numbers");
+	        else 
+	            System.out.print("contains numbers "); 
+	}
+}
