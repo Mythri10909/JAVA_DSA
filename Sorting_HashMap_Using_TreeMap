@@ -1,0 +1,15 @@
+import java.util.*;
+import java.util.stream.Collectors;
+public class Sorting_HashMap_Using_TreeMap {
+    public static void main(String[] args) {
+        HashMap<Character, Integer> map = new HashMap<>();
+        map.put('z',1 );
+        map.put('f',67);
+        map.put('c',67);
+        map.put('c',98);
+        Map<Character,Integer>sorted=new TreeMap<>(map);
+        
+        sorted.forEach((x,y)->System.out.println(x+" : "+y));
+       
+    }
+}
