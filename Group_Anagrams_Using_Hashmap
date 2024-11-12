@@ -1,0 +1,20 @@
+import java.io.*;
+import java.util.*;
+class Group_Anagrams_Using_Hashmap{
+    public static void group_Anagrams(String input[]){
+        HashMap<String,List<String>>group=new HashMap<>();
+        for(String s : input){
+            char c[]=s.toLowerCase().toCharArray();
+            Arrays.sort(c);
+            String res=new String(c);
+            group.computeIfAbsent(res,k->new ArrayList<>()).add(s);
+        }
+        for (List<String> anagrams : group.values()) {
+            System.out.println(anagrams);
+        }
+    }
+    public static void main (String[] args) {
+        String[] input={"Mythi","Mythri","sdbj","Mytirh","Siri","riiS","Anitha","thAnia","Nani","Nina"};
+        group_Anagrams(input);
+    }
+}
