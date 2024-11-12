@@ -1,0 +1,14 @@
+import java.io.*;
+import java.util.*;
+class Group_Strings_With_Same_Length{
+    public static void main(String [] args){
+        HashMap<String,Integer>map=new HashMap<>();
+        HashMap<Integer,List<String>>mlist=new HashMap<>();
+        String []strs={"mythri","aaaaaa","siri","Anitha","nani","usha","Sai","dhanu"};
+        for(String s : strs){
+            map.put(s,s.length());
+            mlist.computeIfAbsent(s.length(),k->new ArrayList<>()).add(s);
+        }
+        System.out.println(mlist);
+    }
+}
