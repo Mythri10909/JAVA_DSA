@@ -1,0 +1,25 @@
+import java.io.*;
+import java.util.*;
+class Count_Consecutives_Using_HashMap{
+    public static void main(String [] args){
+        HashMap<Integer,Integer>map=new HashMap<>();
+        int []a={1,4,2,6,5,8,3,7,9,11,67};
+        int cnt=1,cur_num=0,max_cnt=0;
+        for(int s : a){
+            map.put(s,map.getOrDefault(s,0)+1);
+        }
+        for(int x:a){
+            cur_num=x;
+            cnt=1;
+            if(!(map.containsKey(x-1))){
+                //checking for the starting of the sequence
+            while(map.containsKey(cur_num+1)){
+                cnt++;
+                cur_num++;
+            }
+        }
+            max_cnt=Math.max(cnt,max_cnt);
+        }
+        System.out.println(max_cnt);
+    }
+}
