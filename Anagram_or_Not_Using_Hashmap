@@ -1,0 +1,23 @@
+import java.io.*;
+import java.util.*;
+class Anagram_or_Not_Using_Hashmap{
+    public static boolean is_Anagram(String s1,String s2){
+        HashMap<Character, Integer> map = new HashMap<>();
+        for(int i=0;i<s1.length();i++){
+            map.put(s1.charAt(i),map.getOrDefault(s1.charAt(i),0)+1);
+        }
+        for(char c:s2.toCharArray()){
+            if(!(map.containsKey(c)))return false;
+            map.put(c,map.get(c)-1);
+            if(map.get(c)==0) map.remove(c);
+        }
+        return map.isEmpty();
+    }
+    public static void main (String[] args) {
+        String s1="Mythrsireddy";
+        String s2="riyhtMreddy";
+        System.out.println(is_Anagram(s1,s2));  
+        
+    }
+}
+
