@@ -1,5 +1,5 @@
 import java.util.*;
-public class Group_Anagrams {
+public class Group_Anagrams2 {
     public static void main(String[] args) {
         String[] strs = {"eat", "tea", "tan", "ate", "nat", "bat"};
         List<List<String>> groupedAnagrams = groupAnagrams(strs);
