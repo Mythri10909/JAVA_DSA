@@ -1,0 +1,36 @@
+import java.util.*;
+
+public class Longest_Palindrome_in_a_String {
+    public static void main(String[] args) {
+        String s="MythrirhtyMmadammadamxxxxgfjkmadam";
+        String result=Longest_Pali(s);
+        System.out.println(result);
+    }
+    
+    
+    public static String Longest_Pali(String s){
+        int i,len1,len2,len=0,maxLength=0;int start_index=0;
+        for( i=0;i<s.length();i++){
+            len1=Len_Around_Centre(s,i,i);
+            len2=Len_Around_Centre(s,i,i+1);
+            len=Math.max(len1,len2);
+            if(len>maxLength){
+                maxLength=len;
+                start_index=i-(len-1)/2;
+            }
+        }
+        return (s.substring(start_index,start_index+maxLength));
+    }
+    
+    
+    public static int Len_Around_Centre(String s, int ind1,int ind2){
+        while((ind1>=0 && ind2 <s.length()) && (s.charAt(ind1)==s.charAt(ind2))){
+            ind1--;
+            ind2++;
+        }
+        
+        return ind2-ind1-1;
+    }
+    
+    
+}
