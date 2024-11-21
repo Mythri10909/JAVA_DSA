@@ -1,0 +1,35 @@
+import java.io.*;
+import java.util.*;
+class Count_and_Say_On_Strings {
+	public static void main (String[] args) 
+	{
+	    String s="122333444455555";
+	    String result=new String(Count_and_Say(s));
+	    System.out.println(result);
+	}
+	public static StringBuilder Count_and_Say(String s)
+	{
+	    int l=0,r=0;int cnt=0;
+	    StringBuilder sb=new StringBuilder("");
+	    while(r<s.length()){
+	        if(s.charAt(r)==s.charAt(l))
+	        {
+	            r++;
+	            cnt++;
+	            if(r==s.length())
+	            {
+	            sb.append(cnt);
+	            sb.append(s.charAt(r-1));
+	            }
+	        }
+	        else
+	        {
+	            sb.append(cnt);
+	            sb.append(s.charAt(r-1));
+	            l=r;
+	            cnt=0;
+	        }
+	    }
+	    return sb;
+	}
+}
