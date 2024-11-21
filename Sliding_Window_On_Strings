@@ -1,0 +1,26 @@
+import java.io.*;
+import java.util.*;
+class Sliding_Window_On_Strings {
+	public static void main (String[] args) {
+	    String s="Thisismyworld";
+	    int maxLength=LengthOfMax(s);
+	    System.out.println(maxLength);
+	}
+	public static int LengthOfMax(String s){
+	    Set<Character>set=new HashSet<>();
+	    int start=0,end=0,maxLength=0;
+	    for(end=0;end<s.length();end++){
+	        char cur_char=s.charAt(end);
+	        if(set.contains(cur_char)){
+	            while(set.contains(cur_char)){
+	             set.remove(s.charAt(start));
+	             start++;
+	            }
+	            
+	        }
+	        set.add(cur_char);
+	      maxLength=Math.max(maxLength,end-start+1);
+	    }
+	    return maxLength;
+	}
+}
