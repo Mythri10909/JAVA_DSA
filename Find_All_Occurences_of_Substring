@@ -1,0 +1,15 @@
+class Find_All_Occurences_of_Substring {
+  public static void main(String[] args) {
+      String s="Mythri is Mythri but siri is not Mythri";
+      String sub="Mythri";
+      int n=s.length();
+      int length=sub.length();int i=0;
+      while(i < (n-length+1) && i != n){
+          if(s.charAt(i)==sub.charAt(0) && sub.equals(s.substring(i,i+length))){
+              System.out.println(s.substring(i,i+length));
+              System.out.println("Found at position "+(i+1));
+          }
+          i++;
+      }
+  }
+}
