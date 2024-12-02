@@ -1,0 +1,68 @@
+import java.util.*;
+
+class Minimun_Window_Substring {
+    public static void minWindow(String s, String sub) {
+        if (s == null || sub == null || s.length() < sub.length()) {
+            System.out.println("NOT POSSIBLE");
+            return;
+        }
+
+        int left = 0, right = 0;
+        int matched = 0;
+        int start = 0;
+        int minLength = Integer.MAX_VALUE;
+
+        HashMap<Character, Integer> subMap = new HashMap<>();
+        HashMap<Character, Integer> windowMap = new HashMap<>();
+
+        int i = 0;
+        int m = s.length();
+        int n = sub.length();
+
+        // Populate subMap with the frequency of characters in "sub"
+        while (i < n) {
+            subMap.put(sub.charAt(i), subMap.getOrDefault(sub.charAt(i), 0) + 1);
+            i++;
+        }
+
+        // Sliding window
+        while (right < m) {
+            char rightChar = s.charAt(right);
+            windowMap.put(rightChar, windowMap.getOrDefault(rightChar, 0) + 1);
+
+            if (subMap.containsKey(rightChar) && windowMap.get(rightChar).equals(subMap.get(rightChar))) {
+                matched++;
+            }
+
+            // Shrink the window
+            while (matched == subMap.size()) {
+                if ((right - left + 1) < minLength) {
+                    minLength = right - left + 1;
+                    start = left;
+                }
+
+                char leftChar = s.charAt(left);
+                windowMap.put(leftChar, windowMap.get(leftChar) - 1);
+
+                if (subMap.containsKey(leftChar) && windowMap.get(leftChar) < subMap.get(leftChar)) {
+                    matched--;
+                }
+                left++;
+            }
+
+            right++;
+        }
+
+        if (minLength == Integer.MAX_VALUE) {
+            System.out.println("NOT POSSIBLE");
+        } else {
+            System.out.println(s.substring(start, start + minLength));
+        }
+    }
+
+    public static void main(String[] args) {
+        String s = "ADOBECODEBANC";
+        String sub = "ABC";
+        minWindow(s, sub);
+    }
+}
