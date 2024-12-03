@@ -1,0 +1,38 @@
+import java.util.*;
+
+
+public class Graph_implementation {
+    public static void main(String[] args)
+    {
+       List<List<Integer>> graph = new ArrayList<>();
+       System.out.println("Enter number of vertices and number of edges : ");
+       Scanner s=new Scanner(System.in);
+       int vertices=s.nextInt();
+       int edges=s.nextInt();
+       
+       for(int i=1;i<=edges;i++){
+           graph.add(new ArrayList<>());
+       }
+       
+       System.out.println("Enter edges (format : Source and destination ) "); 
+       for(int i=1;i<=edges;i++){
+           System.out.println("--------------------------------");
+           int node1=s.nextInt();
+           int node2=s.nextInt();
+           
+           graph.get(node1).add(node2);
+           graph.get(node2).add(node1);
+          
+       }
+       System.out.println("The graph is : ");
+       for(int i=0;i<vertices;i++){
+           for(int j=0;j<graph.get(i).size();j++){
+                System.out.print(i + " -> " + graph.get(i).get(j)+" , ");
+               
+           }
+           System.out.println();
+       }
+
+    }
+}
+
