@@ -1,0 +1,47 @@
+package java_practice;
+import java.util.*;
+
+public class DFS_in_Graphs {
+    
+    public static void DFS(List<List<Integer>> graph, int node , boolean visited[] , List<Integer> list){
+        for(int i:graph.get(node)){
+            if(!visited[i]){
+            list.add(i);
+            visited[i]=true;
+            System.out.print(i+" , ");
+            DFS(graph,i,visited,list);
+            }
+        }
+    }
+    
+    public static void main(String[] args) {
+        int vertices =8;
+        int edges = 8;
+        List<List<Integer>>adj=new ArrayList<>();
+        List<Integer>list=new ArrayList<>();
+        
+        
+        
+        for(int i=0;i<vertices+1;i++){
+            adj.add(new ArrayList<>());
+        }
+
+        adj.get(0).add(2);
+        adj.get(2).add(0);
+        adj.get(0).add(1);
+        adj.get(1).add(0);
+        adj.get(0).add(3);
+        adj.get(3).add(0);
+        adj.get(2).add(4);
+        adj.get(4).add(2);
+
+        boolean visited[]=new boolean[adj.size()];
+        
+        int starting_node=0;
+        list.add(starting_node);
+        visited[starting_node]=true;
+        System.out.print(starting_node+" , ");
+        
+        DFS(adj,starting_node,visited,list);
+    }
+}
