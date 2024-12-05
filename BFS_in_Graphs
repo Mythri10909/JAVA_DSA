@@ -1,0 +1,40 @@
+package java_practice;
+import java.util.*;
+
+public class BFS_in_Graphs {
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        int vertices=7;
+        int edges=6;
+        
+        List<List<Integer>> graph = new ArrayList<>();
+        Queue<Integer>queue=new ArrayDeque<>();
+        int a[] = new int[vertices];
+        ArrayList < Integer > bfs = new ArrayList < > ();
+        for(int i=0;i<vertices;i++){
+            graph.add(new ArrayList<>());
+        }
+        graph.get(1).add(2);
+        graph.get(1).add(3);
+        graph.get(2).add(4);
+        graph.get(2).add(5);
+        graph.get(3).add(6);
+        graph.get(3).add(7);
+        System.out.println("Enter starting node for BFS:");
+        int startNode = s.nextInt();
+        int currentNode=startNode;   
+        queue.add(currentNode);
+        a[currentNode]=1;
+        while(!(queue.isEmpty())){
+            currentNode=queue.poll();
+            bfs.add(currentNode);
+            for(int neighbour : graph.get(currentNode)){
+                if(a[neighbour]==0){
+                a[neighbour]=1;
+                queue.add(neighbour);
+                }
+            }
+        }
+        System.out.print(bfs);
+    }
+}
