@@ -1,0 +1,23 @@
+import java.util.*;
+public class Ranks_Of_Ele_in_Array{
+
+     public static void main(String []args){
+         int a[]={62,4,49,304,5,1,-6};
+         int sorted[]=a.clone();
+         int res[]=new int[a.length];
+         int rank=0;
+         Arrays.sort(sorted);
+         for(int i=0;i<a.length;i++){
+             for(int j=0;j<a.length;j++){
+                 if(a[i]==sorted[j]){
+                     res[i]=j+1;
+                 }
+                 
+             }
+             
+         }
+         for(int i=0;i<a.length;i++){
+              System.out.println(res[i]);
+         }
+     }
+}
