@@ -1,0 +1,27 @@
+import java.util.*;
+public class Ranks_Of_Ele_in_Array_method2{
+
+     public static void main(String []args){
+         int a[]={62,4,49,304,5,1,-6};
+         int sorted[]=a.clone();
+         int res[]=new int[a.length];
+         int rank=1;
+         Arrays.sort(sorted);
+         Map<Integer,Integer>map=new HashMap<>();
+         //int rank=1;
+         for(int i=0;i<a.length;i++){
+             if(!map.containsKey(sorted[i])){
+                map.put(sorted[i],rank);                 
+             }
+             rank++;
+         }
+         
+         for(int i=0;i<a.length;i++){
+             res[i]=map.get(a[i]);
+         }
+         
+         for(int i=0;i<a.length;i++){
+              System.out.println(res[i]);
+         }
+     }
+}
