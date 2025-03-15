@@ -1,0 +1,20 @@
+import java.util.*;
+public class HelloWorld{
+
+     public static void main(String []args){
+         String s="g djwi dowhnwoed djwbcflpqrtuvxyzng  amkjwwowh";
+         s.toLowerCase();
+         StringBuilder res=new StringBuilder("");
+         char x[]=s.toCharArray();
+         Set <Character> set= new HashSet<>();
+         for(int i=0;i<x.length;i++){
+             if(x[i]>='a' && x[i]<='z')set.add(x[i]);
+         }
+         for(char c='a';c<='z';c++){
+             if(!set.contains(c))res.append(c);
+         }
+         if(res.length()==0)System.out.println("0");
+         else
+         System.out.println(res);
+     }
+}
