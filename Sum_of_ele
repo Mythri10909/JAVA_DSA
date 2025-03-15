@@ -1,0 +1,9 @@
+public class Sum_of_ele{
+
+     public static void main(String []args){
+         int a=5,b=9,sum=0;
+         sum=(((b-a+1))*(a+b))/2;
+         
+         System.out.println(sum);
+     }
+}
