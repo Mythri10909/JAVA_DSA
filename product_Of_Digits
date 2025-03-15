@@ -1,0 +1,15 @@
+import java.util.*;
+public class product_Of_Digits{
+
+     public static void main(String []args){
+         int n=2544;
+         int res=1;
+         int r=0;
+         while(n>0){
+             res*=n%10;
+             n=n/10;
+             
+         }
+         System.out.print(res+" ");
+     }
+}
