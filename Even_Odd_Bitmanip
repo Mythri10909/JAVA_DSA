@@ -1,0 +1,8 @@
+public class Even_Odd_Bitmanip{
+
+     public static void main(String []args){
+         int n=181;
+         if((n&1)==1)System.out.println("ODD NUMBER");
+         else System.out.println("EVEN NUMBER");
+     }
+}
