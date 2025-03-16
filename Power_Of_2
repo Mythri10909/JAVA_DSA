@@ -1,0 +1,9 @@
+public class Power_Of_2{
+
+     public static void main(String []args){
+         int n=646;
+         if((n&(n-1))==0)
+         System.out.println("YES!!!");
+         else System.out.println("NOOOOO!!!");
+     }
+}
