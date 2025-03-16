@@ -1,0 +1,16 @@
+  public class Count_1s_BitManipulation{
+    
+         public static void main(String []args){
+             int n=8;
+             int x=1,sum=0,rem=0;
+             while(n>0){
+                if((n&1)==1){
+                    sum++;
+                }
+                n=n>>1;
+             }
+             System.out.println(sum);
+         }
+         
+         
+    }
