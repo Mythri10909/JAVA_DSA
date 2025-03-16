@@ -1,0 +1,15 @@
+public class Binary_to_Decimal {
+
+    public static void main(String[] args) {
+        int n = 0b1010;
+        int x = 1, sum = 0;
+
+        while (n > 0) {
+            if ((n & 1) == 1) sum += x;
+            x *= 2;
+            n = n >> 1;
+        }
+
+        System.out.println(sum);
+    }
+}
