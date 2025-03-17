@@ -1,0 +1,18 @@
+public class Sum_of_Ele_in_Fib{
+
+     public static void main(String []args){
+        int n=5;
+        int a=0,b=1,c,k=2;
+        int sum=1;
+        while(k<n){
+            c=a+b;
+            a=b;
+            b=c;
+            sum+=c;
+            k++;
+        }
+        
+         System.out.print(sum);
+         
+     }
+}
