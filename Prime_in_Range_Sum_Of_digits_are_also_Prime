@@ -1,0 +1,36 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class Prime_in_Range_Sum_Of_digits_are_also_Prime {
+    
+    public static void main(String[] args) {
+       int nn=20,mm=25;
+       for(int i=nn;i<=mm;i++){
+           if(isPrime(i)){
+               if(isPrime(sum(i))){
+                   System.out.print(i+" ");
+               }
+           }
+       }
+     }
+      public static boolean isPrime(int a){
+          boolean flag=true;
+          for(int i=2;i<a/2;i++){
+              if(a%i==0){
+                  flag=false;
+                  return false;
+              }
+          }
+          return flag;
+      }
+    public static int sum(int n){
+        int r=0,sum=0;
+        while(n>0){
+            r=n%10;
+            sum+=r;
+            n=n/10;
+        }
+        return sum;
+    }
+    
+}
