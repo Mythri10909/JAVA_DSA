@@ -1,10 +1,10 @@
 public class Max_Product_Subarray{
 
      public static void main(String []args){
-         int a[]={2,5,3,7,0,-5,-3,77678};
+         int a[]={2, 3, -2, 4};
          int n=a.length;
-         int maxprod=1,minprod=1,result=Integer.MIN_VALUE;
-         for(int i=0;i<n;i++){
+         int maxprod=a[0],minprod=a[0],result=a[0];
+         for(int i=1;i<n;i++){
              if(a[i]<0){
                  int temp=maxprod;
                  maxprod=minprod;
@@ -14,6 +14,6 @@ public class Max_Product_Subarray{
              minprod=Math.min(a[i],minprod*a[i]);
              result=Math.max(result,maxprod);
          }
-         System.out.print(maxprod);
+         System.out.print(result);
      }
 }
