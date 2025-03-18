@@ -1,4 +1,4 @@
-public class Bubble_Sort{
+public class Selection_Sort{
 
      public static void main(String []args){
         int a[]={3,5,2,6,8,2,345,-46};
