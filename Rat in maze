@@ -1,0 +1,33 @@
+import java.util.*;
+
+class Solution {
+    public ArrayList<String> ratInMaze(int[][] maze) {
+        ArrayList<String> ans = new ArrayList<>();
+        int n = maze.length;
+        boolean[][] visited = new boolean[n][n];
+        
+        if (maze[0][0] == 0) return ans;
+        find(maze, 0, 0, "", ans, visited);
+        return ans;
+    }
+
+    public static void find(int[][] maze, int r, int c, String res, ArrayList<String> ans, boolean[][] visited) {
+        int n = maze.length;
+
+        if (r < 0 || c < 0 || r >= n || c >= n || maze[r][c] == 0 || visited[r][c]) return;
+
+        if (r == n - 1 && c == n - 1) {
+            ans.add(res);
+            return;
+        }
+
+        visited[r][c] = true;
+
+        find(maze, r - 1, c, res + "U", ans, visited);
+        find(maze, r + 1, c, res + "D", ans, visited);
+        find(maze, r, c - 1, res + "L", ans, visited);
+        find(maze, r, c + 1, res + "R", ans, visited);
+
+        visited[r][c] = false;
+    }
+}
