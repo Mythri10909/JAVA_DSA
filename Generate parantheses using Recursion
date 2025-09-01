@@ -1,0 +1,22 @@
+class Solution {
+    public List<String> generateParenthesis(int n) {
+        String res="";
+        List<String> list = new ArrayList<>();
+        Gen(n,"",0,0,list);
+        return list;
+    }
+    public static void Gen(int n,String s,int opening,int closing,List<String>list){
+        if(opening==n && closing==n) {
+            list.add(s);
+            return;
+        }
+        //Add open para
+        if(opening<n){
+            Gen(n,s+"(",opening+1,closing,list);
+
+        }    
+        if(closing < opening)
+            Gen(n,s+")",opening,closing+1,list);
+
+    }
+}
