@@ -13,7 +13,7 @@ class Solution {
 
     public static void find(int[][] maze, int r, int c, String res, ArrayList<String> ans, boolean[][] visited) {
         int n = maze.length;
-
+        if(maze[0][0]==0 || maze[n-1][n-1]==0) return;
         if (r < 0 || c < 0 || r >= n || c >= n || maze[r][c] == 0 || visited[r][c]) return;
 
         if (r == n - 1 && c == n - 1) {
