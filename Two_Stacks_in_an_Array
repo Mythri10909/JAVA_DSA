@@ -1,0 +1,53 @@
+import java.util.*;
+
+class Main {
+    
+    static int a[] = new int[20];
+    static int top1 = 0, top2 = a.length - 1;
+
+    public static void main(String args[]){
+        push1(5);
+        push1(6);
+        push2(10);
+        push2(99);
+
+        System.out.println(pop1()); // 6
+        System.out.println(pop1()); // 5
+        System.out.println(pop2()); // 99
+        System.out.println(pop2()); // 10
+    }
+
+    public static void push1(int n){
+        if(top1 <= top2){
+            a[top1++] = n;
+        } else {
+            System.out.println("Stack1 Overflow");
+        }
+    }
+
+    public static void push2(int n){
+        if(top2 >= top1){
+            a[top2--] = n;
+        } else {
+            System.out.println("Stack2 Overflow");
+        }
+    }
+
+    public static int pop1(){
+        if(top1 <= 0){
+            System.out.println("Stack1 Underflow");
+            return -1;
+        }
+        int x = a[--top1]; 
+        return x;
+    }
+
+    public static int pop2(){
+        if(top2 >= a.length - 1){
+            System.out.println("Stack2 Underflow");
+            return -1;
+        }
+        int x = a[++top2]; 
+        return x;
+    }
+}
